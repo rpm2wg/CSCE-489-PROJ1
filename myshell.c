@@ -5,15 +5,26 @@
 
 #include <stdio.h>
 #include "shellfuncts.h"
+#include <string.h>
+#include <stdbool.h>
 
-int main(int argv, const char *argc[]) {
-//	(void) argv; // Make compile warnings go away - be sure to delete this line if you use the param
-	(void) argc; // Make compile warnings go away - be sure to delete this line if you use the param
+int main() {
+	
+	char buffer[100];
+	bool exit_yet = false;
+	char exit[] = "exit";
 
-	// If they just ran myshell, say Hello World--if they included a parameter, speak Australian
-	if (argv == 1)
-		hello(1);
-	else
-		hello(0);
+	printf("\nSimple Shell\n\n");
+	
+	while(!exit_yet){
 
+	fgets(buffer, 100, stdin);
+	
+	if (strcmp(exit, buffer) == 0) {
+		exit_yet = true;
+		}
+	}
+	return 0;
 }
+
+
