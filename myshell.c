@@ -1,6 +1,10 @@
 /*************************************************************************************
- * myshell - student code for Project 1 of CSCE 489 
- *
+ * myshell - A very simple Linux shell project 
+ * 
+ * Ryan Montgomery
+ * CSCE 489 - Project 1
+ * Lt Col George E. Noel, Ph.D.
+ * August 5, 2020
  *************************************************************************************/
 
 #include <stdio.h>
@@ -18,18 +22,24 @@ int main(int argv, const char *argc[]) {
 	char exit_now[] = "halt\n";
 		
 		
-	printf("\nSimple Shell\n\n");
+	printf("\nThe not-so-Simple Shell!\n\n");
+	printf("Available commands:\n");
+	printf("dir\n");
+	printf("create <filename>\n");
+	printf("update <filename> <number> <\"Your text\"> <&>\n");
+	printf("list <filename>\n");
+	printf("halt\n\n");
 	__pid_t pid = getpid();
-	printf("The parent PID is: %d\n", pid);
+	printf("The parent PID is: %d\n******************************\n", pid);
 	while(!exit_yet)
 	 {
 	 	fgets(buffer, 100, stdin);
-		parse_input(buffer);
 		if (strcmp(buffer, exit_now) == 0)
 			{
 			printf("Goodbye!\n");
 			exit_yet = true;
-			}		
+			}	
+			parse_input(buffer);	
 	 }
 	return 0;
 }
